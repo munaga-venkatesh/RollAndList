@@ -14,10 +14,16 @@ struct PickAName: View {
     @State private var shouldRemoveName: Bool = false
     
     var body: some View {
-        VStack {            
+        VStack {
+            Text(pickedName.isEmpty ? " " : pickedName)
+                .font(.title2)
+                .fontWeight(.heavy)
+                .foregroundStyle(.accent)
+            
             List(names, id: \.description) { name in
                 Text(name)
             }
+            .listStyle(.plain)
             .clipShape(RoundedRectangle(cornerRadius: 8))
             
             TextField("Add a name", text: $nameToAdd)
