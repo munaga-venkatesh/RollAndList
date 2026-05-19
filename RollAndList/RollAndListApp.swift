@@ -9,9 +9,19 @@ import SwiftUI
 
 @main
 struct RollAndListApp: App {
+    @AppStorage("hasSeenWelcome") private var hasSeenWelcome = false
+    
+    init() { // Test perpose
+        UserDefaults.standard.removeObject(forKey: "hasSeenWelcome")
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if hasSeenWelcome {
+                ContentView()
+            } else {
+                WelcomePage()
+            }
         }
     }
 }

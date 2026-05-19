@@ -14,6 +14,11 @@ struct ContentView: View {
                 .tabItem {
                     Label("Pick a name", systemImage: "person.3.sequence.fill")
                 }
+            
+            DiceRoller()
+                .tabItem {
+                    Label("Roll a dice", systemImage: "dice.fill")
+                }
         }
     }
 }
